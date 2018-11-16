@@ -4,7 +4,7 @@
     var offsetX, offsetY, text;
     var colors = ['#B2949D', '#FFF578', '#FF5F8D', '#37A9CC', '#188EB2'];
     var factorialNumber,valueContent;//factorialNumber：大数阶乘的结果；valueContent:存放结果的dom；
-    var stringResultContent,stringCopyButton;
+    var stringResultContent,stringResultContent2,stringCopyButton,stringCopyButton2;
 
     function initPage() {//压面初始化
         initStages();
@@ -38,8 +38,10 @@
         toast = document.getElementById('toast');
         valueContent=document.getElementById('valueContent');
         valueContent.style.top=offsetY+300+'px';
-        stringResultContent=document.getElementById('stringResult')
+        stringResultContent=document.getElementById('stringResult');
+        stringResultContent2=document.getElementById('stringResult');
         stringCopyButton=document.getElementById('stringCopyButton');
+        stringCopyButton2=document.getElementById('stringCopyButton2');
         // valueContent.style.left = offsetX+'px';
     }
 
@@ -149,6 +151,9 @@
                 valueContent.style.visibility="visible"
                 stringResultContent.innerHTML=factorialNumber;//展示结果
                 console.log(factorialNumber)
+                var saaaa=numberfix(factorialNumber)
+                console.log(2333,saaaa)
+
             }else if(parseInt(input.value.trim(),10)===0){
                 valueContent.style.visibility="visible"
                 stringResultContent.innerHTML=1;//展示结果
@@ -237,6 +242,26 @@
             }
         }
         return resultArray.reverse().join("");//将得到的从低位到高位的乘积反转，得到阶乘值
+      }
+
+      function numberfix(number){
+          var length=number.length;//这个数字总共有多少位
+          var dealNumber=number.split('').reverse()
+          console.log(23333,dealNumber)
+          for(var i=0;i<dealNumber.length-1;i++){
+              if(parseInt(dealNumber[i],10)!==0){
+                  break
+              }
+              if(parseInt(dealNumber[i],10)===0){
+                dealNumber.splice(i,1)
+                i--;
+              }
+          }
+          dealNumber.reverse().splice(1,0,'.')
+          var dealString=dealNumber.join('');
+          var numberFix=dealString+'e+'+(length-1)*1
+          console.log('numberFix',numberFix)
+          return numberFix
       }
     window.onload = function() { initPage() };
 })();
