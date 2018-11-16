@@ -1,0 +1,130 @@
+html,body {
+  width:100%;
+  height:100%;
+  overflow:anto;
+  background: #eee;
+  position:relative;
+}
+
+* {
+ 
+  margin: 0; padding: 0;
+}
+
+.title{
+  overflow: hidden;
+  width:100%;
+  height:100px;
+  text-align:center;
+  top:30px;
+  left:0;
+  position: fixed;
+  z-index: 99;
+}
+.title p{
+  width:100%;
+  height: 50px;
+  line-height: 50px;
+  text-align:center;
+  font-size:30px;
+  color:mediumpurple;
+}
+.title .tips{
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 100px;
+   text-align:center;
+  font-size:20px;
+  color:#777;
+}
+#stage{
+  width:100%;
+  height:100%;
+  position: absolute;
+  top:0;
+  left:0;
+}
+input[type="text"] {
+  position: absolute;
+  border: 1px solid #ddd;
+  padding: 6px;
+  font-size: 18px;
+  width: 200px;
+  text-transform: uppercase;
+  top: 30px;
+  left: 130px;
+}
+
+input[type="submit"] {
+  position: absolute;
+  display: block;
+  width: 100px;
+  border: 0;
+  line-height: 35px;
+  height: 35px;
+  color: #fff;
+  background: mediumpurple;
+  font-size: 18px;
+  top: 30px;
+  left: 350px;
+  cursor: pointer;
+}
+
+form {
+  position: absolute;
+  width: 600px;
+  height: 100px;
+}
+#toast{
+  width:auto;
+  padding:5px 10px;
+  height:30px;
+  line-height: 30px;
+  font-size:25px;
+  color:#fff;
+  background:rgba(0,0,0,0.6);
+  position: fixed;
+  z-index: 999;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  border-radius:5px;
+  display:none;
+}
+#valueContent{
+  position: absolute;
+  top:0;
+  left:0;
+  height:auto;
+  box-sizing:border-box;
+  padding:0 30px;
+  word-break:break-all;
+  text-overflow:normal;
+  text-align: left;
+  width:100%;
+  overflow: auto;
+  border:1px solid red;
+  visibility: hidden;
+}
+#valueContent p{
+  font-size:20px;
+  color:mediumpurple;
+  line-height: 30px;
+}
+.result1{
+  position: relative;
+}
+#stringCopyButton{
+  position: absolute;
+  top:-16px;
+  right:-28px;
+  width:30px;
+  height: 20px;
+  text-align: center;
+  color:#fff;
+  background:#000;
+  opacity: 0.76;
+  font-size:14px;
+  border-radius:3px;
+
+}
