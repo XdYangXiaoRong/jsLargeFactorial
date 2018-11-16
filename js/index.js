@@ -39,7 +39,7 @@
         valueContent=document.getElementById('valueContent');
         valueContent.style.top=offsetY+300+'px';
         stringResultContent=document.getElementById('stringResult');
-        stringResultContent2=document.getElementById('stringResult');
+        stringResultContent2=document.getElementById('stringResult2');
         stringCopyButton=document.getElementById('stringCopyButton');
         stringCopyButton2=document.getElementById('stringCopyButton2');
         // valueContent.style.left = offsetX+'px';
@@ -150,9 +150,10 @@
                 factorialNumber = largeFactorial(inputVal)
                 valueContent.style.visibility="visible"
                 stringResultContent.innerHTML=factorialNumber;//展示结果
-                console.log(factorialNumber)
-                var saaaa=numberfix(factorialNumber)
-                console.log(2333,saaaa)
+                // console.log(factorialNumber)
+                var fixNumber=numberfix(factorialNumber)
+                stringResultContent2.innerHTML=fixNumber;
+                // console.log(2333,saaaa)
 
             }else if(parseInt(input.value.trim(),10)===0){
                 valueContent.style.visibility="visible"
@@ -164,10 +165,10 @@
         });
     }
     function copyStringResult(){
-        stringCopyButton.addEventListener('click',function(){
+        function CopyText(content){
             console.log("copy")
             document.designMode = 'on'
-            var text = stringResultContent.innerText;
+            var text = content.innerText;
             var input = document.getElementById("hiddenInput");
             input.value = text; // 修改文本框的内容
             if(input.select){
@@ -179,10 +180,14 @@
             console.log(document.execCommand("copy"))
             document.execCommand("copy"); // 执行浏览器复制命令
             document.designMode = 'off'
-            // execCommand("Copy")
-            // window.clipboardData.setData("Text", input.value);//设置数据
-        },false)
+                // execCommand("Copy")
+                // window.clipboardData.setData("Text", input.value);//设置数据
+        }
+        stringCopyButton.addEventListener('click',CopyText.bind(null,stringResultContent),false)
+        stringCopyButton2.addEventListener('click',CopyText.bind(null,stringResultContent2),false)
     }
+
+    
 
     function createText(t) {//生成页面上的动态字
         var fontSize = 860/(t.length);

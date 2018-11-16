@@ -7,8 +7,8 @@ html,body {
 }
 
 * {
- 
   margin: 0; padding: 0;
+  font-family: PingFangSC-Medium;
 }
 
 .title{
@@ -105,7 +105,7 @@ form {
   text-overflow:normal;
   text-align: left;
   overflow: auto;
-  border:1px solid red;
+  /*border:1px solid red;*/
   visibility: hidden;
   background:rgba(0,0,0,0.5);
   color:#fff;
@@ -113,12 +113,13 @@ form {
 #valueContent p{
   font-size:20px;
   color:red;
-  line-height: 30px;
+  line-height: 36px;
+  font-weight:bold;
 }
-.result1{
+.result1,.result2{
   position: relative;
 }
-#stringCopyButton{
+#stringCopyButton,#stringCopyButton2{
   position: absolute;
   top:-16px;
   right:-28px;
@@ -130,5 +131,7 @@ form {
   opacity: 0.76;
   font-size:14px;
   border-radius:3px;
-
+}
+#stringCopyButton2{
+  top:20px;
 }

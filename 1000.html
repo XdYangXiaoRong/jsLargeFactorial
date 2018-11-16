@@ -182,10 +182,10 @@
         console.log('lastArray1=2222',lastArray)
         for(var i=0;i<lastArray.length;i++){
           console.log(i,lastArray[i])
-          // if(lastArray.length===0){
-          //   returnArray=lastArray[0]
-          //   break;
-          // }
+          if(lastArray.length===0){
+            returnArray=lastArray[0]
+            break;
+          }
          
            console.log('lastArray22222',lastArray)//lastA
           for(var x=0;x<i;x++){//为错位相加做准备
@@ -214,7 +214,7 @@
         //将得到的个位相乘数组，10位相乘数组，百位相乘数组依次相加；
         
         return returnArray.reverse().join('');      
-   }
+  }
   var result2=chen2(12345678901234567890,1230);
   console.log(111,result2)
   // console.log(chen(123,123456))
