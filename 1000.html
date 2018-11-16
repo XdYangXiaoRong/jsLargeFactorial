@@ -154,32 +154,46 @@
       // console.log("maxLength",maxLength)
         for(var j=0;j<nArray.length;j++){//计算count与每一位的乘积兵保存在数组lastArray中
           // lastArray[j]=
-          var newCountArray=[],before=0;//保存上一位的进位信息
-          for(var k=countArray.length-1|| before!=0;k>=0;k--){//将count也放在一个数组中
+          var newCountArray=[];//保存上一位的进位信息
+          for(var k=countArray.length-1,before=0;k>=0 || before!=0;k--){//将count也放在一个数组中
             newCountArray[k]=(nArray[j]*countArray[k]+before)%10;//当前位取余+前一位的进位
-            // var temp=before
-            // before=Math.floor((nArray[j]*countArray[k]+temp)/10);//当前位的进位
-            before=(nArray[j]*countArray[k]+before-newCountArray[k])/10
-            if(k<=0&&before!=0){
+            before=(nArray[j]*countArray[k]+before-newCountArray[k])/10;
+            if(before!==0 &&k<=0){
               newCountArray.unshift(before);
+              before=0
               // 最高位进位了，结果最大值加1
             }
           }
-         
-          // console.log('newCountArray',newCountArray)
+          console.log('newCountArray',j,newCountArray)
           lastArray[j]=newCountArray.reverse();
         }
-        console.log('lastArray',lastArray)//lastArray依次保存着个位数与cout，10位数与count，百位数与count……的乘积的数组
+        var lengthArray=[];
         for(var i=0;i<lastArray.length;i++){
-          if(lastArray.length===0){
-            returnArray=lastArray[0]
-            break;
+          lengthArray.push(lastArray[i].length)
+        }
+        var MathLength=Math.max.apply(null,lengthArray)
+
+        console.log('lastArray',lastArray)//lastArray依次保存着个位数与cout，10位数与count，百位数与count……的乘积的数组
+        for(var l=0;l<lastArray.length;l++){//将所有数组的长度都改为一致
+            if(lastArray[l].length<MathLength){
+              lastArray[l].push(0)
+            }
+        }
+        console.log('lastArray1=2222',lastArray)
+        for(var i=0;i<lastArray.length;i++){
+          console.log(i,lastArray[i])
+          // if(lastArray.length===0){
+          //   returnArray=lastArray[0]
+          //   break;
+          // }
+         
+           console.log('lastArray22222',lastArray)//lastA
+          for(var x=0;x<i;x++){//为错位相加做准备
+              lastArray[i].unshift(0);//不足的自动补零
           }
-          for(var j=0;j<i;j++){
-            lastArray[i].unshift(0);//不足的自动补零
-          }
-          var before2=0;
-          for(var x=0;x<lastArray[i].length;x++){
+          console.log("lastArray44444",lastArray.slice(0))
+         
+          for(var x=0,before2=0;x<lastArray[i].length || before2!==0;x++){
             var temp=returnArray[x];
             if(!temp){
               temp=0;
@@ -188,7 +202,12 @@
             var temp2=before2;
             // before2=Math.floor((temp+lastArray[i][x]+temp2)/10);
             before2=(temp+lastArray[i][x]+before2-returnArray[x])/10
-            console.log(i,returnArray)
+            if(before2!==0 && x>=lastArray[i].length){
+              returnArray.push(before2);
+              before2=0
+              // 最高位进位了，结果最大值加1
+            }
+            // console.log(i,returnArray)
           }
           
         }
@@ -196,7 +215,7 @@
         
         return returnArray.reverse().join('');      
    }
-  var result2=chen2(1234567890,1234567890);
+  var result2=chen2(12345678901234567890,1230);
   console.log(111,result2)
   // console.log(chen(123,123456))
   function f(n) {

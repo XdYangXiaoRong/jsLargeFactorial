@@ -94,21 +94,25 @@ form {
 #valueContent{
   position: absolute;
   top:0;
-  left:0;
+  left:20px;
+  bottom:20px;
+  right:20px;
+  border-radius: 10px;
   height:auto;
   box-sizing:border-box;
   padding:0 30px;
   word-break:break-all;
   text-overflow:normal;
   text-align: left;
-  width:100%;
   overflow: auto;
   border:1px solid red;
   visibility: hidden;
+  background:rgba(0,0,0,0.5);
+  color:#fff;
 }
 #valueContent p{
   font-size:20px;
-  color:mediumpurple;
+  color:red;
   line-height: 30px;
 }
 .result1{
