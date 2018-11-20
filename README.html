@@ -26,7 +26,7 @@
 			}
 			return arguments.callee(n-1)*n;
 		}
-		console.log(1111,test2(100))
+		console.log(1111,test2(170))
 		//3、仔细研究了一下，js解决这个问题的只能是将大数字存储在字符串当中，但是字符串又不好进行加减乘除操作，所以可以将数字的每一位存储在数组中，然后再join('')成一个字符串输出。
 		//我觉得如果我可以用数组的形式解决两个大数相乘的问题，那么这么问题就可以解决了，所以我开始想办法做大数相乘的函数，思路如下：
 		function multiplication(count,n){//输入乘数1：count，乘数2：n
@@ -147,7 +147,8 @@
             }
         }
         return resultArray.reverse().join("");//将得到的从低位到高位的乘积反转，得到阶乘值
-      }
+     }
+     console.log(largeFactorial(1000))
 	</script>
 </body>
 </html>
