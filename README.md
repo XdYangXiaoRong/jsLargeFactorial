@@ -76,7 +76,7 @@ function multiplication(count,n){//输入乘数1：count，乘数2：n
   }
 #####注：设count=92345，n=12
 #####那么此时lastArray= [[0, 9, 6, 4, 8, 1],
-#####					     [5, 4, 3, 2, 9, 0]]
+#####					 [5, 4, 3, 2, 9, 0]]
  
   
   for(var i=0;i<lastArray.length;i++){
@@ -148,7 +148,7 @@ function test3(n){
                 count=carry;
             }
             resultArray[j]=count%10;
-            carry=(count-resultArray[j])/10;//向下个高位的进位
+            carry=(count-resultArray[j])/10;  //向下个高位的进位
         }
     }
     return resultArray.reverse().join("");//将得到的从低位到高位的乘积反转，得到阶乘值
